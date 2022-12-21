@@ -1,3 +1,7 @@
 .epub-container {
     display: none !important;
 }
+
+#front-page-button {
+    display: none;
+}

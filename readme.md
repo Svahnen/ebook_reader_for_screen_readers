@@ -1,0 +1,1 @@
+This is an webbased ebook reader that will load the text right into the html body so any screen reader will start reading the text. It uses EpubJS https://github.com/futurepress/epub.js/

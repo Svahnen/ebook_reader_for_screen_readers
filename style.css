@@ -2,6 +2,7 @@
     display: none !important;
 }
 
-#front-page-button {
+#front-page-button,
+#top {
     display: none;
 }

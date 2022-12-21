@@ -10,9 +10,12 @@ function renderBook() {
     book = ePub(file);
     rendition = book.renderTo("area", { height: 999999 });
     displayed = rendition.display();
-    document.getElementById("front-page-button").style.display = "flex";
-    setTimeout(showAllChapters, 1000);
-    setTimeout(fixText, 1000);
+    setInterval(() => {
+        document.getElementById("front-page-button").style.display = "flex";
+        document.getElementById("top").style.display = "flex";
+        showAllChapters();
+        fixText();
+    }, 1000)
 }
 
 function fixText() {

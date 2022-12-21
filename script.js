@@ -1,21 +1,22 @@
 document.getElementById("file").addEventListener('change', loadBook);
 
-let book;
-let rendition;
-let displayed;
-
 function loadBook() {
-    let file = document.getElementById("file").files[0];
+    file = document.getElementById("file").files[0];
+    document.getElementById("text-here").innerHTML = "";
+    renderBook()
+}
+
+function renderBook() {
     book = ePub(file);
     rendition = book.renderTo("area", { height: 100000 });
     displayed = rendition.display();
     document.getElementById("front-page-button").style.display = "flex";
+    setTimeout(showAllChapters, 1000);
     setTimeout(fixText, 1000);
-    setTimeout(showAllChapters, 2000);
 }
 
 function fixText() {
-    document.getElementById("text-here").innerHTML = rendition.getContents()[0].documentElement.childNodes[2].innerHTML
+    document.getElementById("text-here").innerHTML = rendition.getContents()[0].content.innerHTML
 }
 
 function nextChapter() {
@@ -43,6 +44,6 @@ function showAllChapters() {
 
 function goToChapter(chapter) {
     rendition.display(book.navigation.toc[chapter].href);
-    setTimeout(fixText, 1000);
     document.getElementById("text-here").scrollIntoView();
+    setTimeout(fixText, 1000);
 }

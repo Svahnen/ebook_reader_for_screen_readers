@@ -13,7 +13,9 @@ function renderBook() {
     setInterval(() => {
         document.getElementById("front-page-button").style.display = "flex";
         document.getElementById("top").style.display = "flex";
+        document.getElementById("chapter").style.display = "flex";
         showAllChapters();
+        getChapter()
         fixText();
     }, 1000)
 }

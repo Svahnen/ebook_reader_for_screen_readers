@@ -50,7 +50,7 @@ function showAllChapters() {
 function goToChapter(chapter) {
     rendition.display(book.navigation.toc[chapter].href);
     document.getElementById("text-here").scrollIntoView();
-    setInterval(() => {
+    setTimeout(() => {
         getChapter()
         fixText()
     }, 1000)

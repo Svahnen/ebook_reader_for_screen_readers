@@ -6,3 +6,10 @@
 #top {
     display: none;
 }
+
+#chapter {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    font-weight: bold;
+}

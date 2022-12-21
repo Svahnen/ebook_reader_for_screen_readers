@@ -48,5 +48,12 @@ function showAllChapters() {
 function goToChapter(chapter) {
     rendition.display(book.navigation.toc[chapter].href);
     document.getElementById("text-here").scrollIntoView();
-    setTimeout(fixText, 1000);
+    setInterval(() => {
+        getChapter()
+        fixText()
+    }, 1000)
+}
+
+function getChapter() {
+    document.getElementById("chapter").innerHTML = rendition.getContents()[0].document.title;
 }

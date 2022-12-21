@@ -15,9 +15,9 @@ function renderBook() {
         document.getElementById("top").style.display = "flex";
         document.getElementById("chapter").style.display = "flex";
         showAllChapters();
-        getChapter()
         fixText();
-    }, 1000)
+        getChapter()
+    }, 2000)
 }
 
 function fixText() {

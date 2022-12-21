@@ -8,7 +8,7 @@ function loadBook() {
 
 function renderBook() {
     book = ePub(file);
-    rendition = book.renderTo("area", { height: 100000 });
+    rendition = book.renderTo("area", { height: 999999 });
     displayed = rendition.display();
     document.getElementById("front-page-button").style.display = "flex";
     setTimeout(showAllChapters, 1000);

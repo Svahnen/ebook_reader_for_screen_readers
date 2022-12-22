@@ -1,5 +1,14 @@
 document.getElementById("file").addEventListener('change', loadBook);
 
+// Auto detect DOM changes an update the UI
+document.getElementById("area").addEventListener("DOMNodeInserted", function (ev) {
+    setTimeout(() => {
+        fixText();
+        getChapter()
+    }, 1000);
+}, false);
+
+
 function loadBook() {
     file = document.getElementById("file").files[0];
     document.getElementById("text-here").innerHTML = "";
@@ -15,7 +24,6 @@ function renderBook() {
         document.getElementById("top").style.display = "flex";
         document.getElementById("chapter").style.display = "flex";
         showAllChapters();
-        fixText();
         getChapter()
     }, 2000)
 }
@@ -26,12 +34,10 @@ function fixText() {
 
 function nextChapter() {
     rendition.next();
-    fixText();
 }
 
 function prevChapter() {
     rendition.prev();
-    fixText();
 }
 
 function home() {
@@ -50,10 +56,6 @@ function showAllChapters() {
 function goToChapter(chapter) {
     rendition.display(book.navigation.toc[chapter].href);
     document.getElementById("text-here").scrollIntoView();
-    setTimeout(() => {
-        getChapter()
-        fixText()
-    }, 1000)
 }
 
 function getChapter() {

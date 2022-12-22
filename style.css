@@ -4,6 +4,10 @@
     display: none;
 }
 
+#text-here {
+    padding-bottom: 50px;
+}
+
 #chapter,
 #prev,
 #next,

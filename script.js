@@ -20,12 +20,20 @@ function renderBook() {
     rendition = book.renderTo("area", { height: 999999 });
     displayed = rendition.display();
     setTimeout(() => {
-        document.getElementById("front-page-button").style.display = "flex";
-        document.getElementById("top").style.display = "flex";
-        document.getElementById("chapter").style.display = "flex";
+        showHidden()
         showAllChapters();
         getChapter()
     }, 2000)
+}
+
+function showHidden() {
+    document.getElementById("front-page-button").style.display = "block";
+    document.getElementById("top").style.display = "block";
+    document.getElementById("chapter").style.display = "block";
+    document.getElementById("prev").style.display = "block";
+    document.getElementById("next").style.display = "block";
+
+
 }
 
 function fixText() {
@@ -34,16 +42,23 @@ function fixText() {
 
 function nextChapter() {
     rendition.next();
+    setTimeout(() => {
+        document.getElementById("text-here").scrollIntoView();
+    }, 1500)
 }
 
 function prevChapter() {
     rendition.prev();
+    setTimeout(() => {
+        document.getElementById("text-here").scrollIntoView();
+    }, 1500)
 }
 
 function home() {
     rendition.display();
-    document.getElementById("text-here").scrollIntoView();
-    setTimeout(fixText, 1000);
+    setTimeout(() => {
+        document.getElementById("text-here").scrollIntoView();
+    }, 1500)
 }
 
 function showAllChapters() {
@@ -55,7 +70,9 @@ function showAllChapters() {
 
 function goToChapter(chapter) {
     rendition.display(book.navigation.toc[chapter].href);
-    document.getElementById("text-here").scrollIntoView();
+    setTimeout(() => {
+        document.getElementById("text-here").scrollIntoView();
+    }, 1500)
 }
 
 function getChapter() {
